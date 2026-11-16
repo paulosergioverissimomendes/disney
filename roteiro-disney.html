@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roteiro Disney: Animal Kingdom e Magic Kingdom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef4ff;--surf:#fff;--ink:#14204a;--mute:#53608a;--line:#cfdcf7;--acc:#0b7a5e;--acc-ink:#fff;--soft:#dcf5ee;--gold:#ffc83d;--gold-ink:#3b2a00;--ok:#c62828;--okbg:#fde6e6;--okink:#fff;--warn:#b45309;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1430;--surf:#18204a;--ink:#f3f5ff;--mute:#a9b4e0;--line:#2c3770;--acc:#4fd6b0;--acc-ink:#062a20;--soft:#173a45;--ok:#ff7b7b;--okbg:#3a1b1b;--okink:#2a0a0a;--warn:#f0b35a}}
+:root[data-theme="dark"]{--bg:#0e1430;--surf:#18204a;--ink:#f3f5ff;--mute:#a9b4e0;--line:#2c3770;--acc:#4fd6b0;--acc-ink:#062a20;--soft:#173a45;--ok:#ff7b7b;--okbg:#3a1b1b;--okink:#2a0a0a;--warn:#f0b35a}
+[data-park="mk"]{--acc:#2c4fb3;--acc-ink:#fff;--soft:#e4e9fa}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) [data-park="mk"]{--acc:#9db4ff;--acc-ink:#0f1630;--soft:#26307a}}
+:root[data-theme="dark"] [data-park="mk"]{--acc:#9db4ff;--acc-ink:#0f1630;--soft:#26307a}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 Figtree,system-ui,sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,.tab b,.hd h3,.ord,.mt,.add{font-family:Fredoka,Figtree,system-ui,sans-serif}
+h2{font-weight:600;font-size:21px;margin:0}
+.hero{position:relative;overflow:hidden;border-radius:0 0 28px 28px;margin:-20px -16px 18px;padding:30px 20px 92px;background:linear-gradient(165deg,#1d3fae 0%,#5a3cc2 55%,#d0529b 100%);color:#fff;text-align:center}
+.hero h1{font-weight:700;font-size:36px;line-height:1.1;margin:0;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.2)}
+.hero .sub{color:#eef0ff;margin:8px auto 0;max-width:46ch;position:relative}
+.hero h1{position:relative}
+.hero svg{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:84px}
+.hero svg path{fill:var(--bg)}
+.st{position:absolute;color:var(--gold);animation:tw 3s ease-in-out infinite alternate;pointer-events:none}
+@keyframes tw{from{opacity:.4;transform:scale(.8)}to{opacity:1;transform:scale(1.15)}}
+button{font:inherit;color:inherit}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.main{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px;border:2px solid var(--line);border-radius:99px;margin-bottom:16px;background:var(--surf)}
+.mt{border:0;background:transparent;padding:11px;font-weight:600;font-size:17px;border-radius:99px;cursor:pointer}
+.mt[aria-selected="true"]{background:var(--gold);color:var(--gold-ink);box-shadow:0 3px 0 rgba(0,0,0,.18)}
+.cnt{display:inline-block;min-width:24px;padding:0 7px;border-radius:99px;background:var(--soft);color:var(--ink);font-size:14px;margin-left:6px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.tab{border:2px solid var(--line);background:var(--surf);border-radius:20px;padding:12px 12px;text-align:left;cursor:pointer}
+.tab b{display:block;font-weight:600;font-size:18px}
+.tab[data-p="ak"] b::before{content:"🦁 "}
+.tab[data-p="mk"] b::before{content:"🏰 "}
+.tab span{font-size:13px;color:var(--mute)}
+.tab[aria-selected="true"]{border-color:var(--acc);background:var(--soft);box-shadow:0 4px 0 var(--acc)}
+.plan{background:var(--soft);border-radius:18px;border-left:6px solid var(--gold);padding:12px 14px;margin-bottom:14px;font-size:15px}
+.plan::before{content:"✨ "}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:10px}
+.chip{flex:none;border:2px solid var(--line);background:var(--surf);border-radius:99px;padding:6px 14px;font-size:14px;font-weight:600;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+.card{background:var(--surf);border:2px solid var(--line);border-radius:20px;margin-bottom:12px;overflow:hidden}
+.card.sel{border-color:var(--acc);box-shadow:inset 6px 0 0 var(--acc)}
+.hd{all:unset;box-sizing:border-box;display:block;width:100%;padding:14px 16px;cursor:pointer}
+.hd:focus-visible{outline:3px solid var(--acc);outline-offset:-3px}
+.hd h3{margin:0;font-weight:600;font-size:20px;line-height:1.2}
+.meta{display:flex;flex-wrap:wrap;gap:6px 10px;margin-top:6px;font-size:13px;color:var(--mute);align-items:center}
+.tag{background:var(--soft);color:var(--ink);border-radius:99px;padding:1px 10px;font-weight:600}
+.must{background:var(--gold);color:var(--gold-ink)}
+.must::before{content:"★ "}
+.dots i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--line);margin-right:3px}
+.dots i.on{background:var(--acc)}
+.body{display:none;padding:0 16px 16px;border-top:2px dashed var(--line)}
+.card.open .body{display:block}
+.body p{margin:12px 0 0}
+.body dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:12px 0 0;font-size:14px}
+.body dt{color:var(--mute)}.body dd{margin:0}
+.add{margin-top:14px;border:2px solid var(--acc);background:transparent;color:var(--acc);border-radius:99px;padding:8px 16px;font-weight:600;font-size:15px;cursor:pointer}
+.card.sel .add{background:var(--acc);color:var(--acc-ink)}
+.note{color:var(--mute);font-size:13px;margin-top:18px}
+.empty{color:var(--mute);padding:20px;text-align:center}
+.prog{background:var(--surf);border:2px solid var(--line);border-radius:20px;padding:14px;margin-bottom:14px}
+.bar{height:12px;border-radius:99px;background:var(--line);margin:8px 0 12px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--acc))}
+.btn{border:2px solid var(--line);background:var(--surf);border-radius:99px;padding:7px 14px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;color:var(--ink);display:inline-block}
+.sec{margin-bottom:6px}
+.sec h2{display:flex;align-items:center;gap:8px;margin:16px 0 8px;color:var(--acc)}
+.sec h2::before{content:"✦";color:var(--gold)}
+.trip{border:2px dashed var(--line);border-radius:16px;padding:10px 14px;margin:12px 0;color:var(--mute);font-size:14px}
+.row{display:flex;gap:10px;align-items:flex-start;background:var(--surf);border:2px solid var(--line);border-left:6px solid var(--acc);border-radius:20px;padding:12px;margin-bottom:10px}
+.row.next{box-shadow:0 0 0 3px var(--gold)}
+.row.done{background:var(--okbg);border-color:var(--ok);border-left-color:var(--ok)}
+.row.done .nm{text-decoration:line-through;color:var(--mute)}
+.ck{flex:none;width:36px;height:36px;border-radius:50%;border:2px solid var(--mute);background:transparent;font-size:19px;line-height:1;cursor:pointer;color:transparent}
+.row.done .ck{background:var(--ok);border-color:var(--ok);color:var(--okink)}
+.rb{flex:1;min-width:0}
+.nm{font-weight:600;font-size:16px}
+.rm{display:block;font-size:13px;color:var(--mute)}
+.more{margin-top:6px;border:0;background:transparent;color:var(--acc);font-weight:600;font-size:13px;padding:2px 0;cursor:pointer;text-decoration:underline}
+.det{margin-top:6px;padding:10px 12px;background:var(--soft);border-radius:14px;font-size:14px}
+.det p{margin:0}
+.det dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:8px 0 0;font-size:13px}
+.det dt{color:var(--mute)}.det dd{margin:0}
+.wr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px;font-size:13px}
+.wr input{width:70px;padding:5px 8px;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+.age{color:var(--mute)}.age.stale{color:var(--warn);font-weight:600}
+.badge{font-size:12px;font-weight:700;border-radius:99px;padding:1px 10px;background:var(--gold);color:var(--gold-ink);margin-left:6px}
+.badge.ok{background:var(--ok);color:var(--okink)}
+.mv{display:flex;flex-direction:column;gap:4px}
+.ord{flex:none;display:flex;align-self:center;align-items:center;gap:6px;font-weight:700;font-size:20px}
+.ord .sep{width:2px;height:26px;background:var(--mute);border-radius:2px}
+.ord .sug{color:var(--mute)}
+.ord .chg{color:var(--acc)}
+.mv button{width:34px;height:30px;border:2px solid var(--line);background:var(--surf);border-radius:10px;cursor:pointer}
+.mv button:disabled{opacity:.35;cursor:default}
+.live{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0 0}
+.btn.go{background:var(--gold);color:var(--gold-ink);border-color:var(--gold)}
+.btn.go:disabled{opacity:.6;cursor:default}
+.lst{font-size:13px;color:var(--mute)}.lst.err{color:var(--warn);font-weight:600}
+.src{font-size:11px;font-weight:700;border-radius:99px;padding:0 8px;background:var(--soft);color:var(--ink)}
+.closed{font-size:12px;font-weight:700;border-radius:99px;padding:1px 10px;background:var(--okbg);color:var(--ok)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body data-park="ak">
+<div class="wrap">
+<header class="hero"><span class="st" style="left:9%;top:22px;font-size:22px">★</span><span class="st" style="left:84%;top:16px;font-size:18px;animation-delay:.8s">✦</span><span class="st" style="left:20%;top:78px;font-size:14px;animation-delay:1.4s">✦</span><span class="st" style="left:76%;top:70px;font-size:24px;animation-delay:.4s">★</span><h1>Roteiro Disney</h1><p class="sub">Animal Kingdom de manhã, Magic Kingdom depois. Escolha as atrações, monte o dia e marque o que já foi.</p><svg viewBox="0 0 600 84" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path d="M0,84 L0,68 L110,68 L110,54 L124,54 L132,36 L140,54 L154,54 L154,68 L200,68 L200,46 L212,46 L224,22 L236,46 L248,46 L248,60 L262,60 L262,36 L274,36 L300,0 L326,36 L338,36 L338,60 L352,60 L352,46 L364,46 L376,22 L388,46 L400,46 L400,68 L446,68 L446,54 L460,54 L468,36 L476,54 L490,54 L490,68 L600,68 L600,84 Z"/></svg></header>
+<div class="main" role="tablist">
+<button class="mt" role="tab" data-v="pick">Escolher</button>
+<button class="mt" role="tab" data-v="day">Meu dia<span class="cnt" id="cnt">0</span></button>
+</div>
+<div id="app"></div>
+</div>
+<script>
+var P={
+ak:{name:"Animal Kingdom",sub:"Primeiro parque",tip:"<b>Dica:</b> chegue na abertura e vá direto a Flight of Passage e ao Safari, que têm as maiores filas depois das 10h. Deixe Kali River Rapids e o show do Lion King para o meio do dia.",
+items:[
+{n:"Avatar Flight of Passage",q:"flight of passage",l:"Pandora",t:"Simulador 3D",i:2,d:"5 min",w:"Alta",m:1,x:"Você voa em um banshee sobre o mundo de Pandora, sentindo o corpo respirar e o vento. É a atração mais premiada do parque.",s:"Vá logo na abertura ou use Lightning Lane. Quem enjoa com 3D e movimento pode sentir."},
+{n:"Kilimanjaro Safaris",q:"kilimanjaro",l:"Africa",t:"Safári",i:1,d:"20 min",w:"Alta",m:1,x:"Caminhão aberto por uma savana com girafas, leões, rinocerontes, elefantes e zebras, soltos em grandes áreas.",s:"De manhã cedo os animais estão mais ativos e a fila é menor."},
+{n:"Na’vi River Journey",q:"river journey",l:"Pandora",t:"Passeio de barco",i:1,d:"5 min",w:"Média",m:0,x:"Barco tranquilo por uma floresta bioluminescente, com a cantora Na’vi no final. Visual lindo e sem sustos.",s:"Boa pausa depois do Flight of Passage."},
+{n:"Expedition Everest",q:"expedition everest",l:"Asia",t:"Montanha-russa",i:3,d:"4 min",w:"Média",m:1,x:"Trem que sobe a montanha do Yeti, anda de ré no escuro e termina em descida rápida. A melhor montanha-russa do parque.",s:"A fila single rider costuma ser bem mais curta."},
+{n:"Maharajah Jungle Trek",q:"maharajah",l:"Asia",t:"Trilha a pé",i:1,d:"30 min",w:"Baixa",m:0,x:"Caminho por ruínas de um palácio com tigres, morcegos gigantes e aves exóticas bem de perto, atrás de vidros.",s:"Passeio calmo, sem fila e no seu ritmo."},
+{n:"DINOSAUR",q:"dinosaur",l:"DinoLand U.S.A.",t:"Passeio no escuro",i:2,d:"4 min",w:"Baixa",m:0,x:"Veículo sacolejante que volta no tempo para resgatar um dinossauro, com sustos e barulho.",s:"É intenso e escuro. Pule se não gosta de sobressaltos."},
+{n:"Kali River Rapids",q:"kali river",l:"Asia",t:"Rio de bote",i:2,d:"5 min",w:"Média",m:0,x:"Bote circular por corredeiras. Alguém no grupo vai se molhar, e muito.",s:"Ótimo em dia quente. Guarde o celular em saquinho."},
+{n:"Festival of the Lion King",q:"festival of the lion king",l:"Africa",t:"Show",i:1,d:"30 min",w:"Baixa",m:1,x:"Musical com acrobatas, cantores e figurinos, com as músicas do filme. Teatro coberto com ar-condicionado.",s:"Chegue 15 a 20 min antes para pegar bons lugares e descansar."}
+]},
+mk:{name:"Magic Kingdom",sub:"Segundo parque",tip:"<b>Dica:</b> como vocês chegam depois, as filas já estarão grandes. Escolha 3 ou 4 atrações grandes (Lightning Lane ajuda) e reserve o fim do dia para os fogos.",
+items:[
+{n:"TRON Lightcycle / Run",q:"tron",l:"Tomorrowland",t:"Montanha-russa",i:3,d:"2 min",w:"Alta",m:0,x:"Você monta em uma moto de luz e é lançado em velocidade sob um dossel de neon. Muito moderna.",s:"Tem compartimento para guardar pertences antes de entrar."},
+{n:"Space Mountain",q:"space mountain",l:"Tomorrowland",t:"Montanha-russa no escuro",i:3,d:"3 min",w:"Média",m:1,x:"Clássico no escuro, com curvas rápidas entre estrelas e sem ver o trilho.",s:"A sensação de velocidade é maior do que a real. Vale a fila."},
+{n:"Seven Dwarfs Mine Train",q:"seven dwarfs",l:"Fantasyland",t:"Montanha-russa",i:2,d:"3 min",w:"Alta",m:1,x:"Montanha-russa suave com vagões que balançam, pelas minas dos anões. Linda e boa para todos.",s:"Uma das filas mais longas do parque. Use Lightning Lane se puder."},
+{n:"Tiana’s Bayou Adventure",q:"tiana",l:"Frontierland",t:"Passeio com descida",i:2,d:"10 min",w:"Alta",m:1,x:"Passeio de tronco pelo bayou com música de jazz e animatrônicos, terminando em uma descida final.",s:"Você se molha um pouco no final."},
+{n:"Peter Pan’s Flight",q:"peter pan",l:"Fantasyland",t:"Passeio suspenso",i:1,d:"3 min",w:"Alta",m:1,x:"Você voa em um veleiro sobre Londres e a Terra do Nunca. Curta, mas muito bonita.",s:"Fila grande para pouco tempo. Considere Lightning Lane."},
+{n:"Big Thunder Mountain Railroad",q:"big thunder",l:"Frontierland",t:"Montanha-russa",i:2,d:"4 min",w:"Média",m:0,x:"Trem de mina desgovernado pelo velho oeste, com curvas e pequenas descidas.",s:"À noite fica ainda mais bonita."},
+{n:"Haunted Mansion",q:"haunted mansion",l:"Liberty Square",t:"Passeio escuro",i:1,d:"8 min",w:"Média",m:1,x:"Mansão assombrada com fantasmas, humor e efeitos clássicos. Mais divertida do que assustadora.",s:"Ótima pausa no ar-condicionado."},
+{n:"Pirates of the Caribbean",q:"pirates of the caribbean",l:"Adventureland",t:"Passeio de barco",i:1,d:"9 min",w:"Média",m:1,x:"Barco por cenas de piratas e cidades em chamas, com animatrônicos e cenários detalhados.",s:"A fila costuma andar rápido. Clássico para quem nunca veio."},
+{n:"Jungle Cruise",q:"jungle cruise",l:"Adventureland",t:"Passeio de barco",i:1,d:"10 min",w:"Média",m:0,x:"Barco por rios exóticos com um capitão que faz piadas o tempo todo.",s:"A graça depende do capitão."},
+{n:"Fogos de artifício noturnos",q:"happily ever after|fireworks|firework|nighttime spectacular",l:"Main Street / Castelo",t:"Espetáculo",i:1,d:"15 min",w:"Baixa",m:1,x:"Show com projeções no castelo, música e fogos. É o fecho clássico do dia.",s:"Escolha o lugar uns 45 min antes. Confira o horário no app."}
+]}};
+var S={sel:{},ord:{ak:[],mk:[]},cus:{},done:{},wt:{}},view="pick",park="ak",filt="all",open={},dopen={};
+var KEY="rdisney-v2";
+try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);for(var k in S)if(o[k])S[k]=o[k]}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function $(i){return document.getElementById(i)}
+function idx(id){return +id.split("-")[1]}
+function item(id){var s=id.split("-");return P[s[0]].items[+s[1]]}
+function sortOrd(p){S.ord[p].sort(function(a,b){return idx(a)-idx(b)})}
+function total(){return S.ord.ak.length+S.ord.mk.length}
+function ageInfo(ts){var m=Math.floor((Date.now()-ts)/60000);return{t:m<1?"atualizado agora":"atualizado há "+m+" min",st:m>=10}}
+var F=[["all","Todas"],["must","Imperdíveis"],["thrill","Emoção"],["calm","Tranquilas"]];
+function fits(a){return filt=="all"||(filt=="must"&&a.m)||(filt=="thrill"&&a.i>=2)||(filt=="calm"&&a.i==1)}
+function dots(n){var h="";for(var j=1;j<=3;j++)h+='<i class="'+(j<=n?"on":"")+'"></i>';return h}
+function pick(){
+var h='<div class="tabs">';
+["ak","mk"].forEach(function(p){h+='<button class="tab" role="tab" data-p="'+p+'" aria-selected="'+(park==p)+'"><b>'+P[p].name+'</b><span>'+P[p].sub+'</span></button>'});
+h+='</div><div class="plan">'+P[park].tip+'</div><div class="chips">';
+F.forEach(function(f){h+='<button class="chip" data-f="'+f[0]+'" aria-pressed="'+(filt==f[0])+'">'+f[1]+'</button>'});
+h+='</div>';
+var any=false;
+P[park].items.forEach(function(a,k){
+if(!fits(a))return;any=true;
+var id=park+"-"+k,on=!!S.sel[id];
+h+='<div class="card'+(open[id]?" open":"")+(on?" sel":"")+'"><button class="hd" data-o="'+id+'" aria-expanded="'+(!!open[id])+'"><h3>'+a.n+'</h3><div class="meta"><span>'+a.l+'</span><span class="tag">'+a.t+'</span>'+(a.m?'<span class="tag must">Imperdível</span>':'')+'<span class="dots" title="Intensidade">'+dots(a.i)+'</span></div></button><div class="body"><p>'+a.x+'</p><dl><dt>Duração</dt><dd>'+a.d+'</dd><dt>Fila típica</dt><dd>'+a.w+'</dd><dt>Dica</dt><dd>'+a.s+'</dd></dl><button class="add" data-a="'+id+'">'+(on?"No meu dia (remover)":"Adicionar ao meu dia")+'</button></div></div>';
+});
+if(!any)h+='<div class="empty">Nenhuma atração neste filtro. Escolha outra categoria.</div>';
+return h}
+function ordHtml(id,i){var p=id.split("-")[0],off=p=="mk"?S.ord.ak.length:0,cur=i+1+off,sg=S.ord[p].slice().sort(function(a,b){return idx(a)-idx(b)}).indexOf(id)+1+off;return '<div class="ord" title="Ordem atual | ordem sugerida" aria-label="Ordem atual '+cur+', sugerida '+sg+'"><span class="'+(cur!=sg?"chg":"")+'">'+cur+'</span><span class="sep"></span><span class="sug">'+sg+'</span></div>'}
+function day(){
+var t=total(),d=0;["ak","mk"].forEach(function(p){S.ord[p].forEach(function(id){if(S.done[id])d++})});
+var h='<div class="prog"><b>'+d+' de '+t+' atrações feitas</b><div class="bar"><i style="width:'+(t?Math.round(d/t*100):0)+'%"></i></div><p class="note" style="margin:0 0 12px">Os números ao lado das setas mostram a ordem atual | a ordem sugerida. Atrações feitas ficam em vermelho.</p><button class="btn" data-restore="1">Restaurar ordem sugerida</button> <button class="btn" data-all="1">Expandir ou recolher detalhes</button> <a class="btn" href="https://disneyworld.disney.go.com/attractions/" target="_blank" rel="noopener">Ver filas no site oficial</a><div class="live"><button class="btn go" data-live="1"'+(L_busy?" disabled":"")+'>'+(L_busy?"Buscando…":"🔄 Atualizar filas")+'</button><span class="lst'+(L_err?" err":"")+'" id="lst">'+liveStatus()+'</span></div></div>';
+if(!t)return h+'<div class="empty">Seu dia está vazio. Vá em Escolher e adicione atrações.</div>';
+var next=null;["ak","mk"].forEach(function(p){S.ord[p].forEach(function(id){if(!next&&!S.done[id])next=id})});
+["ak","mk"].forEach(function(p,n){
+if(n==1)h+='<div class="trip">Deslocamento até o Magic Kingdom: reserve cerca de 45 a 60 min e confirme no app o transporte e se o ingresso é Park Hopper.</div>';
+h+='<div class="sec" data-park="'+p+'"><h2>'+P[p].name+'</h2>';
+var L=S.ord[p];
+if(!L.length)h+='<div class="empty">Nenhuma atração escolhida neste parque.</div>';
+L.forEach(function(id,i){
+var a=item(id),w=S.wt[id],ai=w?ageInfo(w.ts):null,dn=!!S.done[id];
+h+='<div class="row'+(dn?" done":"")+(id==next?" next":"")+'"><button class="ck" role="checkbox" aria-checked="'+dn+'" aria-label="Marcar '+a.n+' como feita" data-d="'+id+'">✓</button><div class="rb"><span class="nm">'+a.n+'</span>'+(dn?'<span class="badge ok">Feita</span>':(id==next?'<span class="badge">Próxima</span>':''))+'<span class="rm">'+a.l+' · '+a.t+' · '+a.d+'</span><button class="more" data-m="'+id+'" aria-expanded="'+(!!dopen[id])+'">'+(dopen[id]?"Ocultar detalhes":"Ver detalhes")+'</button>'+(dopen[id]?'<div class="det"><p>'+a.x+'</p><dl><dt>Duração</dt><dd>'+a.d+'</dd><dt>Fila típica</dt><dd>'+a.w+'</dd><dt>Dica</dt><dd>'+a.s+'</dd></dl></div>':'')+'<div class="wr"><label>Fila agora <input type="number" inputmode="numeric" min="0" max="300" placeholder="min" data-w="'+id+'" value="'+(w&&w.m!=null?w.m:"")+'"></label>'+(w&&w.st&&w.st!="OPERATING"?'<span class="closed">'+stName(w.st)+'</span>':'')+(w&&w.nx?'<span class="src">próx. sessão '+w.nx+'</span>':'')+(w?'<span class="src">'+(w.src=="api"?"API":"manual")+'</span><span class="age'+(ai.st?" stale":"")+'" data-ts="'+w.ts+'">'+ai.t+(ai.st?" (desatualizado)":"")+'</span>':'<span class="age">sem dado</span>')+'</div></div>'+ordHtml(id,i)+'<div class="mv"><button data-mv="'+id+'|-1" aria-label="Subir"'+(i==0?" disabled":"")+'>↑</button><button data-mv="'+id+'|1" aria-label="Descer"'+(i==L.length-1?" disabled":"")+'>↓</button><button data-rm="'+id+'" aria-label="Remover do dia">×</button></div></div>';
+});
+h+='</div>';
+});
+h+='<p class="note">Os tempos vêm da API gratuita ThemeParks.wiki (não oficial da Disney) e são atualizados sozinhos a cada 5 minutos enquanto a página está aberta. Se a busca falhar, digite o tempo do app My Disney Experience no campo. O aviso aparece quando o dado passa de 10 minutos.</p>';
+return h}
+var API="https://api.themeparks.wiki/v1",PK=null,L_busy=false,L_err="",L_last=0,EVERY=5*60000;
+function norm(x){return String(x||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[’'`´]/g,"").replace(/[^a-z0-9]+/g," ").trim()}
+function stName(s){return{DOWN:"Parada agora",CLOSED:"Fechada",REFURBISHMENT:"Em reforma"}[s]||s}
+function hhmm(ts){return new Date(ts).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit",timeZone:"America/New_York"})}
+function liveStatus(){if(L_busy)return"Consultando a API…";if(L_err)return L_err;if(!L_last)return"Ainda não buscado. Atualiza sozinho a cada 5 min.";return"Última busca "+hhmm(L_last)+" (horário de Orlando). Próxima em ~5 min."}
+function getJ(u){return fetch(u,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()})}
+function parks(){
+if(PK)return Promise.resolve(PK);
+return getJ(API+"/destinations").then(function(j){
+var d=(j.destinations||[]).filter(function(x){return /walt disney world/i.test(x.name)||x.slug=="waltdisneyworldresort"})[0];
+if(!d)throw new Error("Walt Disney World não encontrado");
+var o={};(d.parks||[]).forEach(function(p){var n=norm(p.name);if(n.indexOf("animal kingdom")>-1)o.ak=p.id;else if(n.indexOf("magic kingdom")>-1)o.mk=p.id});
+if(!o.ak||!o.mk)throw new Error("Parques não encontrados");
+PK=o;return o})}
+function pickLive(list,a){
+var keys=a.q.split("|"),hits=list.filter(function(e){var n=norm(e.name);return keys.some(function(k){return n.indexOf(k)>-1})});
+if(!hits.length)return null;
+hits.sort(function(x,y){var qx=x.queue&&x.queue.STANDBY&&x.queue.STANDBY.waitTime!=null?0:1,qy=y.queue&&y.queue.STANDBY&&y.queue.STANDBY.waitTime!=null?0:1;return qx-qy});
+return hits[0]}
+function applyLive(p,list){
+var now=Date.now(),n=0;
+S.ord[p].forEach(function(id){
+var a=item(id),e=pickLive(list,a);if(!e)return;
+var sb=e.queue&&e.queue.STANDBY,m=sb&&sb.waitTime!=null?sb.waitTime:null,nx=null;
+if(e.showtimes&&e.showtimes.length){var fut=e.showtimes.map(function(s){return Date.parse(s.startTime)}).filter(function(t){return t>now}).sort(function(x,y){return x-y});if(fut.length)nx=hhmm(fut[0])}
+var lu=Date.parse(e.lastUpdated);
+S.wt[id]={m:m,ts:isNaN(lu)?now:Math.min(lu,now),src:"api",st:e.status||"",nx:nx};n++});
+return n}
+function refresh(){
+if(L_busy)return;
+var ps=["ak","mk"].filter(function(p){return S.ord[p].length});
+if(!ps.length){L_err="";return}
+L_busy=true;L_err="";safeRender();
+parks().then(function(o){return Promise.all(ps.map(function(p){return getJ(API+"/entity/"+o[p]+"/live").then(function(j){return applyLive(p,j.liveData||[])})}))})
+.then(function(r){var n=r.reduce(function(x,y){return x+y},0);L_last=Date.now();if(!n)L_err="A API respondeu, mas sem dados para as atrações escolhidas.";save()})
+.catch(function(e){L_err="Não consegui buscar ("+e.message+"). Abra no Safari/Chrome com internet, ou digite o tempo manualmente."})
+.then(function(){L_busy=false;safeRender()})}
+function safeRender(){var a=document.activeElement;if(a&&a.dataset&&a.dataset.w){var el=$("lst");if(el)el.textContent=liveStatus();return}render()}
+function render(){
+document.querySelectorAll(".mt").forEach(function(b){b.setAttribute("aria-selected",b.dataset.v==view)});
+$("cnt").textContent=total();
+document.body.dataset.park=view=="pick"?park:"ak";
+$("app").innerHTML=view=="pick"?pick():day();
+}
+document.addEventListener("click",function(e){
+var t=e.target.closest("button");if(!t)return;var D=t.dataset;
+if(D.v){view=D.v}
+else if(D.p){park=D.p}
+else if(D.f){filt=D.f}
+else if(D.o){open[D.o]=!open[D.o]}
+else if(D.a){var p=D.a.split("-")[0];if(S.sel[D.a]){delete S.sel[D.a];S.ord[p]=S.ord[p].filter(function(x){return x!=D.a})}else{S.sel[D.a]=1;S.ord[p].push(D.a);if(!S.cus[p])sortOrd(p)}save()}
+else if(D.d){if(S.done[D.d])delete S.done[D.d];else S.done[D.d]=1;save()}
+else if(D.mv){var q=D.mv.split("|"),pp=q[0].split("-")[0],ar=S.ord[pp],i=ar.indexOf(q[0]),j=i+ +q[1];if(j<0||j>=ar.length)return;var tmp=ar[i];ar[i]=ar[j];ar[j]=tmp;S.cus[pp]=1;save()}
+else if(D.rm){var p2=D.rm.split("-")[0];delete S.sel[D.rm];S.ord[p2]=S.ord[p2].filter(function(x){return x!=D.rm});save()}
+else if(D.m){dopen[D.m]=!dopen[D.m]}
+else if(D.all){var ids=S.ord.ak.concat(S.ord.mk),allO=ids.every(function(x){return dopen[x]});ids.forEach(function(x){dopen[x]=!allO})}
+else if(D.live){refresh();return}
+else if(D.restore){S.cus={};sortOrd("ak");sortOrd("mk");save()}
+else return;
+render()});
+document.addEventListener("change",function(e){
+var id=e.target.dataset&&e.target.dataset.w;if(!id)return;
+var v=e.target.value;
+if(v===""||isNaN(+v)||+v<0)delete S.wt[id];else S.wt[id]={m:Math.round(+v),ts:Date.now()};
+save();render()});
+setInterval(function(){
+document.querySelectorAll("[data-ts]").forEach(function(el){var a=ageInfo(+el.dataset.ts);el.textContent=a.t+(a.st?" (desatualizado)":"");el.classList.toggle("stale",a.st)})},30000);
+setInterval(function(){if(document.visibilityState=="visible"&&Date.now()-L_last>=EVERY-5000)refresh()},30000);
+document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible"&&Date.now()-L_last>=EVERY)refresh()});
+render();
+refresh();
+</script>
+</body>
+</html>
